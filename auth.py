@@ -40,6 +40,6 @@ if __name__ == "__main__":
     status = authenticate(username, password, pwdb) 
 
     if status:
-        print("success")
+        print("Succesfullly authenticated")
     else:
-        print("failed")
+        print("Wrong password")
