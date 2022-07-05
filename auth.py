@@ -35,9 +35,6 @@ def add_user(pwdb, username, password):
 
 if __name__ == "__main__":
     username, password = get_credentials()
-    # pwdb = {"moritz": "123"}
-    # pwdb = {}
-    # write_pwdb(pwdb, 'pwdb.json')
     pwdb = read_pwdb('pwdb.json')
     status = authenticate(username, password, pwdb)
 
