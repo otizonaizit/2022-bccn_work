@@ -3,4 +3,6 @@ def get_credentials():
     password = input('Enter your password: ')
     return username, password
 
-get_credentials()
+
+if __name__ == "__main__":
+    get_credentials()
