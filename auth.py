@@ -31,16 +31,19 @@ def add_user(pwdb, username, password, path):
     pwdb[username] = password
     write_pwdb(pwdb, 'pwdb.json')
     return pwdb
-#
 
 
 if __name__ == "__main__":
     username, password = get_credentials()
-
+    # pwdb = {"moritz": "123"}
+    # pwdb = {}
+    # write_pwdb(pwdb, 'pwdb.json')
     pwdb = read_pwdb('pwdb.json')
     status = authenticate(username, password, pwdb)
 
     if status:
         print("success")
     else:
-        print("failed")
+        username, password = get_credentials()
+        status = authenticate(username, password, pwdb)
+        print(status)
