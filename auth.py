@@ -34,7 +34,7 @@ def add_user(pwdb, username, password, path):
 
 
 if __name__ == "__main__":
-    pass_path = "pwdb.json"
+    pass_path = "pwdb.json" #not to repeat it all the time
     username, password = get_credentials()
     pwdb = read_pwdb(pass_path)
     status = authenticate(username, password, pwdb) 
