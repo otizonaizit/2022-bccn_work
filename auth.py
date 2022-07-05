@@ -27,7 +27,7 @@ def write_pwdb(pwdb, path):
     with open(path, 'wt') as pwdb_file:
         json.dump(pwdb, pwdb_file)
 
-def add_user(pwdb, username, password, path):
+def add_user(pwdb, username, password):
     pwdb[username] = password
     write_pwdb(pwdb, 'pwdb.json')
     return pwdb
