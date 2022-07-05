@@ -11,6 +11,11 @@ def authenticate(username, password, pwdb):
     if username in pwdb:
         if password == pwdb[username]:
             status = True
+    else:
+        ans = input(f"Would you like to add a new user with this name {username}? (y/n)")
+        if ans == "y":
+            pwdb = add_user(pwdb, username, password, "pwdb.json")
+
     return status
 
 def read_pwdb(path):
@@ -22,14 +27,18 @@ def write_pwdb(pwdb, path):
     with open(path, 'wt') as pwdb_file:
         json.dump(pwdb, pwdb_file)
 
+def add_user(pwdb, username, password, path):
+    pwdb[username] = password
+    write_pwdb(pwdb, 'pwdb.json')
+    return pwdb
+
+
 if __name__ == "__main__":
     username, password = get_credentials()
 
-    #pwdb = {"lisa":"asd"}
-    #write_pwdb('pwdb.json', pwdb)
     pwdb = read_pwdb('pwdb.json')
-    status = authenticate(username, password, pwdb)
-    write_pwdb(pwdb, "pwdb.json")
+    status = authenticate(username, password, pwdb) 
+
     if status:
         print("success")
     else:
