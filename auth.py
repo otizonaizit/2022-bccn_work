@@ -1,8 +1,9 @@
+import getpass
 import json
 
 def get_credentials():
     username = input('Enter your username: ')
-    password = input('Enter your password: ')
+    password = getpass.getpass('Enter your password: ')
     return username, password
 
 def authenticate(username, password, pwdb):
