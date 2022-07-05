@@ -21,11 +21,12 @@ def write_pwdb(pwdb, path):
     with open(path, 'wt') as pwdb_file:
         json.dump(pwdb, pwdb_file)
 
-
 if __name__ == "__main__":
     username, password = get_credentials()
 
-    pwdb = {"lisa":"asd"}
+    #pwdb = {"lisa":"asd"}
+    #write_pwdb('pwdb.json', pwdb)
+    pwdb = read_pwdb('pwdb.json')
     status = authenticate(username, password, pwdb)
     write_pwdb(pwdb, "pwdb.json")
     if status:
